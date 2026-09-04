@@ -72,11 +72,10 @@ function listenToRoom(){
     loginError.textContent="Error in the results: "+(error.code||"Check the rules");
   });
 }
-
+  //if (key.value !== "Luna23") {
 async function enter(){
   const key=cleanRoomId(roomKeyInput.value);
   if(key.length<7){
-  //if (key.value !== "Luna23") {
     loginError.textContent="No results found..";
     return;
   }
