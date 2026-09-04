@@ -75,7 +75,7 @@ function listenToRoom(){
   //if (key.value !== "Luna23") {
 async function enter(){
   const key=cleanRoomId(roomKeyInput.value);
-  if(key.length<7){
+  if(key.length<6){
     loginError.textContent="No results found..";
     return;
   }
