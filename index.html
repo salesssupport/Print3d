@@ -3,36 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Buzón</title>
+<title>Results</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="app">
 <header>
-  <div><h1>Buzón</h1><p id="status">Conectando…</p></div>
-  <button id="copyLink" class="secondary">Copiar enlace</button>
+  <div><h1>Results</h1><p id="status">Connecting</p></div>
+  <button id="copyLink" class="secondary">Copy link</button>
 </header>
 
 <section id="loginPanel" class="card">
-  <h2>Acceso</h2>
-  <p>Introduce la clave de la conversación.</p>
+  <h2>Product Search</h2>
+  <p>Model.</p>
   <input id="roomKey" type="password" maxlength="64" placeholder="Clave de conversación" autocomplete="off">
-  <button id="enterRoom">Entrar</button>
+  <button id="enterRoom">Find</button>
   <p id="loginError" class="error"></p>
 </section>
 
 <section id="chatPanel" class="hidden">
   <div id="messages" class="messages"></div>
   <form id="messageForm" class="composer">
-    <textarea id="messageInput" maxlength="2000" rows="3" placeholder="Escribe un mensaje…" required></textarea>
+    <textarea id="messageInput" maxlength="2000" rows="3" placeholder="Criterio." required></textarea>
     <div class="composerBottom">
       <span id="counter">0/2000</span>
-      <button type="submit" id="sendButton">Enviar</button>
+      <button type="submit" id="sendButton">Register</button>
     </div>
   </form>
 </section>
 
-<footer><small>Canal privado compartido.</small></footer>
+<footer><small>2024</small></footer>
 </main>
 <script type="module" src="app.js"></script>
 </body>

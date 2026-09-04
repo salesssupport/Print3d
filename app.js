@@ -68,19 +68,19 @@ function listenToRoom(){
     docs.forEach(data=>messagesEl.appendChild(renderMessage(data)));
     messagesEl.scrollTop=messagesEl.scrollHeight;
   },error=>{
-    console.error("Firestore read error:",error);
-    loginError.textContent="Error leyendo mensajes: "+(error.code||"revisa las reglas de Firestore");
+    console.error("Read error:",error);
+    loginError.textContent="Error in the results: "+(error.code||"Check the rules");
   });
 }
 
 async function enter(){
   const key=cleanRoomId(roomKeyInput.value);
-  if(key.length<8){
-    loginError.textContent="Usa una clave de al menos 8 caracteres.";
+  if(key.length<5){
+    loginError.textContent="No results found..";
     return;
   }
   if(!currentUser){
-    loginError.textContent="Espera a que Firebase termine de conectar.";
+    loginError.textContent="Procesando.";
     return;
   }
 
@@ -91,7 +91,7 @@ async function enter(){
   loginError.textContent="";
   loginPanel.classList.add("hidden");
   chatPanel.classList.remove("hidden");
-  statusEl.textContent="Conversación privada";
+  statusEl.textContent="";
   listenToRoom();
 }
 
@@ -116,7 +116,7 @@ form.addEventListener("submit",async e=>{
     input.focus();
   }catch(error){
     console.error("Firestore write error:",error);
-    alert("No se pudo enviar el mensaje: "+(error.code||"error desconocido"));
+    alert("Connection error: "+(error.code||"Unknown error"));
   }finally{
     sendButton.disabled=false;
   }
