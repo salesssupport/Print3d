@@ -1,0 +1,17 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f4f5f7;color:#1f2937;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.app{max-width:760px;margin:auto;min-height:100vh;padding:20px 14px;display:flex;flex-direction:column}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+h1{margin:0;font-size:1.45rem}h2{margin-top:0}
+#status{margin:.2rem 0 0;color:#6b7280;font-size:.85rem}
+.card,.composer{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px;box-shadow:0 3px 14px rgba(0,0,0,.04)}
+input,textarea{width:100%;border:1px solid #d1d5db;border-radius:10px;padding:12px;font:inherit;outline:none}
+input:focus,textarea:focus{border-color:#6b7280}
+button{border:0;border-radius:10px;padding:11px 16px;background:#111827;color:#fff;font:inherit;font-weight:600;cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}.secondary{background:#fff;color:#111827;border:1px solid #d1d5db}
+#enterRoom{width:100%;margin-top:10px}.error{color:#b91c1c;min-height:1.2em}
+.hidden{display:none}.messages{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;min-height:48vh;max-height:65vh;overflow:auto;padding:4px}
+.message{max-width:85%;padding:11px 13px;border-radius:14px;background:#fff;border:1px solid #e5e7eb;align-self:flex-start}
+.message.mine{align-self:flex-end;background:#eef2ff}.message time{display:block;color:#6b7280;font-size:.72rem;margin-top:5px}
+.message p{white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.composerBottom{display:flex;align-items:center;justify-content:space-between;margin-top:8px;color:#6b7280;font-size:.78rem}
+footer{margin-top:auto;padding:18px 2px;color:#6b7280}@media(max-width:520px){.app{padding:12px 10px}.messages{min-height:55vh}.message{max-width:92%}}
