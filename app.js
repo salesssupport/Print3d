@@ -80,7 +80,7 @@ async function enter(){
     return;
   }
   if(!currentUser){
-    loginError.textContent="Procesando.";
+    loginError.textContent="Processing.";
     return;
   }
 
@@ -126,20 +126,20 @@ copyLink.addEventListener("click",async()=>{
   // Solo copia la página, nunca la clave.
   try{
     await navigator.clipboard.writeText(location.origin+location.pathname+location.search);
-    copyLink.textContent="Enlace copiado";
-    setTimeout(()=>copyLink.textContent="Copiar enlace",1500);
+    copyLink.textContent="Link copied";
+    setTimeout(()=>copyLink.textContent="Copy link",1500);
   }catch{
-    alert("Copia manualmente la dirección de esta página.");
+    alert("Manually copy the address.");
   }
 });
 
 onAuthStateChanged(auth,user=>{
   currentUser=user;
-  statusEl.textContent=user?"Listo":"Conectando…";
+  statusEl.textContent=user?"Ready":"Connecting..";
 });
 
 signInAnonymously(auth).catch(error=>{
   console.error("Anonymous auth error:",error);
-  statusEl.textContent="Error de conexión";
-  loginError.textContent="No se pudo iniciar la sesión anónima. Revisa Authentication > Anonymous.";
+  statusEl.textContent="Connection error";
+  loginError.textContent="Could not start the session..";
 });
