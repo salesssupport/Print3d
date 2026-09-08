@@ -49,8 +49,6 @@ function listenToRoom(){
   messagesEl.innerHTML="";
   loginError.textContent="";
 
-  // No usamos orderBy de Firestore: cargamos los documentos y ordenamos
-  // en el navegador. Esto evita problemas de índices o timestamps.
   const ref=collection(db,"rooms",roomId,"messages");
   unsubscribe=onSnapshot(query(ref),snapshot=>{
     const docs=[];
@@ -72,7 +70,7 @@ function listenToRoom(){
     loginError.textContent="Error in the results: "+(error.code||"Check the rules");
   });
 }
-  //if (key.value !== "Luna23") {
+
 async function enter(){
   const key=cleanRoomId(roomKeyInput.value);
   if(key.length<5){
@@ -84,7 +82,7 @@ async function enter(){
     return;
   }
 
-  // La clave queda solamente en memoria. NO se coloca en la URL.
+
   roomId=key;
   history.replaceState(null,"",location.pathname+location.search);
 
@@ -123,7 +121,7 @@ form.addEventListener("submit",async e=>{
 });
 
 copyLink.addEventListener("click",async()=>{
-  // Solo copia la página, nunca la clave.
+
   try{
     await navigator.clipboard.writeText(location.origin+location.pathname+location.search);
     copyLink.textContent="Link copied";
