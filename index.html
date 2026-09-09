@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Product</title>
+<title>Results</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="app">
 <header>
   <div><h1>Results</h1><p id="status">Connecting</p></div>
-  <div style="display:flex;gap:8px;align-items:center"><button id="copyLink" class="secondary">Copy link</button></div>
+  <div style="display:flex;gap:8px;align-items:center"><button id="copyLink" class="secondary">Copy link</button><button id="closePage" class="secondary" type="button">Close</button></div>
 </header>
 
-<section id="findPanel" class="card">
+<section id="loginPanel" class="card">
   <h2>Product Search</h2>
   <p>Model.</p>
   <input id="roomKey" type="text" maxlength="64" placeholder="product search" autocomplete="off">
@@ -21,13 +21,12 @@
   <p id="loginError" class="error"></p>
 </section>
 
-<section id="txtPanel" class="hidden">
-  <div id="textfind" class="textfind"></div>
+<section id="chatPanel" class="hidden">
+  <div id="messages" class="messages"></div>
   <form id="messageForm" class="composer">
     <textarea id="messageInput" maxlength="2000" rows="3" placeholder="Criterio." required></textarea>
     <div class="composerBottom">
       <span id="counter">0/2000</span>
-      <button id="closePage" class="secondary" type="button">Refresh</button>
       <button type="submit" id="sendButton">Register</button>
     </div>
   </form>
