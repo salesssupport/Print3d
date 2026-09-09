@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Results</title>
+<title>Product</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
   <div style="display:flex;gap:8px;align-items:center"><button id="copyLink" class="secondary">Copy link</button></div>
 </header>
 
-<section id="loginPanel" class="card">
+<section id="findPanel" class="card">
   <h2>Product Search</h2>
   <p>Model.</p>
   <input id="roomKey" type="text" maxlength="64" placeholder="product search" autocomplete="off">
@@ -21,8 +21,8 @@
   <p id="loginError" class="error"></p>
 </section>
 
-<section id="chatPanel" class="hidden">
-  <div id="messages" class="messages"></div>
+<section id="txtPanel" class="hidden">
+  <div id="textfind" class="textfind"></div>
   <form id="messageForm" class="composer">
     <textarea id="messageInput" maxlength="2000" rows="3" placeholder="Criterio." required></textarea>
     <div class="composerBottom">

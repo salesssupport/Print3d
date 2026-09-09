@@ -16,9 +16,9 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const $ = id => document.getElementById(id);
-const loginPanel=$("loginPanel"), chatPanel=$("chatPanel"), statusEl=$("status");
+const findPanel=$("findPanel"), txtPanel=$("txtPanel"), statusEl=$("status");
 const roomKeyInput=$("roomKey"), enterRoom=$("enterRoom"), loginError=$("loginError");
-const messagesEl=$("messages"), form=$("messageForm"), input=$("messageInput");
+const textfindEl=$("textfind"), form=$("messageForm"), input=$("messageInput");
 const sendButton=$("sendButton"), counter=$("counter"), copyLink=$("copyLink"), closePage=$("closePage");
 let currentUser=null, roomId=null, unsubscribe=null;
 
@@ -45,10 +45,10 @@ function renderMessage(data){
 
 function listenToRoom(){
   if(unsubscribe) unsubscribe();
-  messagesEl.innerHTML="";
+  textfindEl.innerHTML="";
   loginError.textContent="";
 
-  const ref=collection(db,"rooms",roomId,"messages");
+  const ref=collection(db,"rooms",roomId,"textfind");
   unsubscribe=onSnapshot(query(ref),snapshot=>{
     const docs=[];
     snapshot.forEach(doc=>{
@@ -61,9 +61,9 @@ function listenToRoom(){
       return at-bt;
     });
 
-    messagesEl.innerHTML="";
-    docs.forEach(data=>messagesEl.appendChild(renderMessage(data)));
-    messagesEl.scrollTop=messagesEl.scrollHeight;
+    textfindEl.innerHTML="";
+    docs.forEach(data=>textfindEl.appendChild(renderMessage(data)));
+    textfindEl.scrollTop=textfindEl.scrollHeight;
   },error=>{
     console.error("Read error:",error);
     loginError.textContent="Error in the results: "+(error.code||"Check the rules");
@@ -86,8 +86,8 @@ async function enter(){
   history.replaceState(null,"",location.pathname+location.search);
 
   loginError.textContent="";
-  loginPanel.classList.add("hidden");
-  chatPanel.classList.remove("hidden");
+  findPanel.classList.add("hidden");
+  txtPanel.classList.remove("hidden");
   statusEl.textContent="";
   listenToRoom();
 }
@@ -103,7 +103,7 @@ form.addEventListener("submit",async e=>{
 
   sendButton.disabled=true;
   try{
-    await addDoc(collection(db,"rooms",roomId,"messages"),{
+    await addDoc(collection(db,"rooms",roomId,"textfind"),{
       text,
       uid:currentUser.uid,
       createdAt:serverTimestamp()
@@ -149,12 +149,12 @@ closePage.addEventListener("click", () => {
   }
 
   roomId = null;
-  messagesEl.innerHTML = "";
+  textfindEl.innerHTML = "";
   input.value = "";
   counter.textContent = "0/2000";
 
-  chatPanel.classList.add("hidden");
-  loginPanel.classList.remove("hidden");
+  txtPanel.classList.add("hidden");
+  findPanel.classList.remove("hidden");
 
   roomKeyInput.value = "";
   loginError.textContent = "";
