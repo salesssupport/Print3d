@@ -146,27 +146,26 @@ signInAnonymously(auth).catch(error=>{
 if (closePage) {
   closePage.addEventListener("click", () => {
     // Stop receiving messages from Firebase.
-    if (typeof unsubscribe === "function") {
-      unsubscribe();
-      unsubscribe = null;
+    closePage.addEventListener("click", () => {
+    if (unsubscribe) {
+        unsubscribe();
+        unsubscribe = null;
     }
 
-    // Remove sensitive conversation state from JavaScript memory.
-    if (typeof cryptoKey !== "undefined") cryptoKey = null;
-    if (typeof roomId !== "undefined") roomId = null;
+    cryptoKey = null;
+    roomId = null;
 
-    // Clear visible content and inputs.
-    if (typeof messagesEl !== "undefined") messagesEl.innerHTML = "";
-    if (typeof input !== "undefined") input.value = "";
+    messagesEl.innerHTML = "";
+    input.value = "";
+    counter.textContent = "0/2000";
 
-    // Hide the application and show the clean exit screen.
-    const panels = [loginPanel, chatPanel].filter(Boolean);
-    panels.forEach(panel => panel.classList.add("hidden"));
-    if (exitPanel) exitPanel.classList.remove("hidden");
+    chatPanel.classList.add("hidden");
+    loginPanel.classList.remove("hidden");
 
-    document.title = "Página cerrada";
+    roomKeyInput.value = "";
+    loginError.textContent = "";
+    status("Listo");
 
-    // Browsers normally block closing tabs that were not opened by script.
-    try { window.close(); } catch (_) {}
-  });
+    roomKeyInput.focus();
+});
 }
