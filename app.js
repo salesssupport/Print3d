@@ -19,8 +19,7 @@ const $ = id => document.getElementById(id);
 const loginPanel=$("loginPanel"), chatPanel=$("chatPanel"), statusEl=$("status");
 const roomKeyInput=$("roomKey"), enterRoom=$("enterRoom"), loginError=$("loginError");
 const messagesEl=$("messages"), form=$("messageForm"), input=$("messageInput");
-const sendButton=$("sendButton"), counter=$("counter"), copyLink=$("copyLink");
-const closePage=$("closePage");
+const sendButton=$("sendButton"), counter=$("counter"), copyLink=$("copyLink"), closePage=$("closePage");
 let currentUser=null, roomId=null, unsubscribe=null;
 
 function cleanRoomId(value){
@@ -149,9 +148,7 @@ closePage.addEventListener("click", () => {
     unsubscribe = null;
   }
 
-  cryptoKey = null;
   roomId = null;
-
   messagesEl.innerHTML = "";
   input.value = "";
   counter.textContent = "0/2000";
@@ -161,6 +158,6 @@ closePage.addEventListener("click", () => {
 
   roomKeyInput.value = "";
   loginError.textContent = "";
-  status("Listo");
+  statusEl.textContent = "Ready";
   roomKeyInput.focus();
 });
