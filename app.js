@@ -141,29 +141,3 @@ signInAnonymously(auth).catch(error=>{
   statusEl.textContent="Connection error";
   loginError.textContent="Could not start the session..";
 });
-closePage.addEventListener("click", () => {
-  // Detener la recepción de mensajes
-  if (unsubscribe) {
-    unsubscribe();
-    unsubscribe = null;
-  }
-
-  // Eliminar la clave de la memoria
-  cryptoKey = null;
-  roomId = null;
-
-  // Limpiar visualmente la conversación
-  messagesEl.innerHTML = "";
-  input.value = "";
-
-  // Intentar cerrar la pestaña
-  window.close();
-
-  // Si el navegador no permite cerrar la pestaña,
-  // reemplazar el contenido por una pantalla vacía.
-  setTimeout(() => {
-    document.body.innerHTML = "";
-    document.title = " ";
-    history.replaceState(null, "", location.pathname);
-  }, 100);
-});
