@@ -15,3 +15,9 @@ button:disabled{opacity:.5;cursor:not-allowed}.secondary{background:#fff;color:#
 .message.mine{align-self:flex-end;background:#eef2ff}.message time{display:block;color:#6b7280;font-size:.72rem;margin-top:5px}
 .message p{white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.composerBottom{display:flex;align-items:center;justify-content:space-between;margin-top:8px;color:#6b7280;font-size:.78rem}
 footer{margin-top:auto;padding:18px 2px;color:#6b7280}@media(max-width:520px){.app{padding:12px 10px}.messages{min-height:55vh}.message{max-width:92%}}
+
+
+.exit-panel{text-align:center;min-height:60vh;display:flex;align-items:center;justify-content:center}
+.exit-panel.hidden{display:none}
+.exit-box{padding:32px}
+.exit-box h1{margin-bottom:8px}

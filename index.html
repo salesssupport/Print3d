@@ -11,6 +11,7 @@
 <header>
   <div><h1>Results</h1><p id="status">Connecting</p></div>
   <button id="copyLink" class="secondary">Copy link</button>
+<button id="closePage" class="secondary">Cerrar</button>
 </header>
 
 <section id="loginPanel" class="card">
@@ -35,5 +36,13 @@
 <footer><small>2024</small></footer>
 </main>
 <script type="module" src="app.js"></script>
+
+<section id="exitPanel" class="exit-panel hidden" aria-live="polite">
+  <div class="exit-box">
+    <h1>Página cerrada</h1>
+    <p>La conversación ya no está visible en esta página.</p>
+  </div>
+</section>
+
 </body>
 </html>

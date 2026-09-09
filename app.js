@@ -141,3 +141,32 @@ signInAnonymously(auth).catch(error=>{
   statusEl.textContent="Connection error";
   loginError.textContent="Could not start the session..";
 });
+
+
+if (closePage) {
+  closePage.addEventListener("click", () => {
+    // Stop receiving messages from Firebase.
+    if (typeof unsubscribe === "function") {
+      unsubscribe();
+      unsubscribe = null;
+    }
+
+    // Remove sensitive conversation state from JavaScript memory.
+    if (typeof cryptoKey !== "undefined") cryptoKey = null;
+    if (typeof roomId !== "undefined") roomId = null;
+
+    // Clear visible content and inputs.
+    if (typeof messagesEl !== "undefined") messagesEl.innerHTML = "";
+    if (typeof input !== "undefined") input.value = "";
+
+    // Hide the application and show the clean exit screen.
+    const panels = [loginPanel, chatPanel].filter(Boolean);
+    panels.forEach(panel => panel.classList.add("hidden"));
+    if (exitPanel) exitPanel.classList.remove("hidden");
+
+    document.title = "Página cerrada";
+
+    // Browsers normally block closing tabs that were not opened by script.
+    try { window.close(); } catch (_) {}
+  });
+}
