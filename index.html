@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Results</title>
+<title>Products</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="app">
 <header>
   <div><h1>Results</h1><p id="status">Connecting</p></div>
-  <div style="display:flex;gap:8px;align-items:center"><button id="copyLink" class="secondary">Copy link</button><button id="closePage" class="secondary" type="button">Close</button></div>
+  <div style="display:flex;gap:8px;align-items:center"><button id="copyLink" class="secondary">Copy link</button></div>
 </header>
 
 <section id="loginPanel" class="card">
@@ -27,6 +27,7 @@
     <textarea id="messageInput" maxlength="2000" rows="3" placeholder="Criterio." required></textarea>
     <div class="composerBottom">
       <span id="counter">0/2000</span>
+      <button id="closePage" class="secondary" type="button">refresh</button>
       <button type="submit" id="sendButton">Register</button>
     </div>
   </form>
