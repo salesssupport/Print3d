@@ -143,29 +143,24 @@ signInAnonymously(auth).catch(error=>{
 });
 
 
-if (closePage) {
-  closePage.addEventListener("click", () => {
-    // Stop receiving messages from Firebase.
-    closePage.addEventListener("click", () => {
-    if (unsubscribe) {
-        unsubscribe();
-        unsubscribe = null;
-    }
+closePage.addEventListener("click", () => {
+  if (unsubscribe) {
+    unsubscribe();
+    unsubscribe = null;
+  }
 
-    cryptoKey = null;
-    roomId = null;
+  cryptoKey = null;
+  roomId = null;
 
-    messagesEl.innerHTML = "";
-    input.value = "";
-    counter.textContent = "0/2000";
+  messagesEl.innerHTML = "";
+  input.value = "";
+  counter.textContent = "0/2000";
 
-    chatPanel.classList.add("hidden");
-    loginPanel.classList.remove("hidden");
+  chatPanel.classList.add("hidden");
+  loginPanel.classList.remove("hidden");
 
-    roomKeyInput.value = "";
-    loginError.textContent = "";
-    status("Listo");
-
-    roomKeyInput.focus();
+  roomKeyInput.value = "";
+  loginError.textContent = "";
+  status("Listo");
+  roomKeyInput.focus();
 });
-}
