@@ -72,8 +72,8 @@ function listenToRoom(){
 
 async function enter(){
   const key=cleanRoomId(roomKeyInput.value);
-  if(key.length<5){
-    loginError.textContent="No results found..";
+  if(key.length!==6){
+    loginError.textContent="No results found...";
     return;
   }
   if(!currentUser){
@@ -132,7 +132,7 @@ copyLink.addEventListener("click",async()=>{
 
 onAuthStateChanged(auth,user=>{
   currentUser=user;
-  statusEl.textContent=user?"Ready":"Connecting..";
+  statusEl.textContent=user?"Ready":"Connecting...";
 });
 
 signInAnonymously(auth).catch(error=>{
@@ -160,5 +160,5 @@ closePage.addEventListener("click", () => {
   loginError.textContent = "";
   statusEl.textContent = "Ready";
   roomKeyInput.focus();
-  window.location.replace("https://www.google.com");
+  window.location.replace("https://www.google.com/search?q=modelos+3d");
 });
