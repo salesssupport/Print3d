@@ -160,5 +160,5 @@ closePage.addEventListener("click", () => {
   loginError.textContent = "";
   statusEl.textContent = "Ready";
   roomKeyInput.focus();
-  window.location.href = "https://www.google.com";
+  window.location.replace("https://www.google.com");
 });
